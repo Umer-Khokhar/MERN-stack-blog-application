@@ -14,7 +14,10 @@ import instagramIcon from '../assets/social_icons/instagram.svg'
 import discordIcon from '../assets/social_icons/discord.svg'
 import dltBtn from '../assets/dlt.png'
 import profileImage from '../assets/profile.png'
-
+import darkTheme from '../assets/darktheme.svg'
+import lightTheme from '../assets/light.svg'
+import menu from '../assets/menu.svg'
+import closeMenu from '../assets/close-menu.svg'
 
 export default {
     logo,
@@ -32,5 +35,9 @@ export default {
     linkedinIcon,
     instagramIcon,
     dltBtn,
-    profileImage
+    profileImage,
+    darkTheme,
+    lightTheme,
+    menu,
+    closeMenu,
 }

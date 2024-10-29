@@ -5,6 +5,7 @@
     --poppins: "Poppins", sans-serif;
     /* pallete 1 */
     --peach-1: #FFD18E;
+    --peach-2: rgba(255, 209, 142, 0.62);
     --yellow-1: #E9FF97;
     --orange-1: #FFA38F;
     --pink-1: #FF7EE2;
@@ -12,3 +13,6 @@
     --paynes-gray-op: #545e7514;
     --logo-font: "Fredoka", sans-serif;
 }
+
+/* Light Theme Styles */
+

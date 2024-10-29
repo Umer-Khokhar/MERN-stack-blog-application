@@ -6,15 +6,20 @@
     box-sizing: border-box;
     background-color: #a7e9f8; /* Light blue background for the hero section */
     border-radius: 10px;
-    margin-bottom: 2rem;
   }
   
   .hero-content {
-    text-align: center;
     max-width: 800px;
     margin-bottom: 20px;
   }
-  
+
+  .hero-content.dark-mode h1 {
+    color: #505056;
+  }
+
+  .hero-content.dark-mode > p {
+    color: #000000;
+  }
   .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -40,6 +45,8 @@
     height: auto;
     border-radius: 10px;
   }
+
+
   
   /* Responsive Styles */
   @media (min-width: 768px) {
@@ -67,4 +74,32 @@
       max-width: 48%;
     }
   }
+
+@media screen and (max-width: 860px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .hero-meta span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 712px) {
+  .hero__section {
+    flex-direction: column-reverse;
+  }
+  .hero-content h1 {
+    font-size: 1.4rem;
+  }
+  .hero-content p {
+    font-size: 15px;
+  }
+  .hero-image {
+    max-width: 500px;
+  }
+}
+
   

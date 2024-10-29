@@ -16,5 +16,8 @@ export {
     BlogContext, BlogContextPro, useBlogContext 
 }
 
+import { ThemeContext, ThemeProvider} from "./theme_context/ThemeContext.jsx";
+export { ThemeContext, ThemeProvider };
+
 import { handleGetBlogs, handlePostBlogs } from "./blog_logic/BlogService"
 export { handleGetBlogs, handlePostBlogs}

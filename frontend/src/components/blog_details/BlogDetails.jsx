@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import "./blogDetails.css"
 import { useBlogContext } from '../blog_logic/BlogContext'
 // eslint-disable-next-line react/prop-types
-const BlogDetails = ({title, description, image, _id, dltBtn}) => {
+const BlogDetails = ({title, image, _id, dltBtn}) => {
   const { dltBlog } = useBlogContext()
 
   const handleDlt = async () => {
-    const response = await fetch(`http://localhost:3000/api/blog-post/${_id}`, {
+      const fetchUrl = `http://localhost:3000/api/blog-post/${_id}` || `192.168.1.5:3000/api/blog-post/${_id}`;
+    const response = await fetch(fetchUrl, {
       method : "DELETE",
     })
     const data = await response.json()
@@ -19,7 +20,10 @@ const BlogDetails = ({title, description, image, _id, dltBtn}) => {
      <img src={image} alt="blog-image" className='blog-image' />
               <div className="post__info">
               <h2>{title}</h2>
-              <p>{description}</p>
+              <div className="publish-time">
+                  <span className="date">3 days ago</span>
+              </div>
+
               </div>
               <div className="dlt-button">
               <img src={dltBtn} onClick={handleDlt} alt="delete button" className='dlt' width={20}/>

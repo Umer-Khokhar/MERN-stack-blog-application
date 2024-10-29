@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Dashboard, Home } from "./pages"
+import { Dashboard, Home, About, Contact, Services } from "./pages"
 import { Navbar } from "./components"
 import DetailPage from './pages/detail_page/DetailPage'
 
@@ -15,6 +15,9 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path="/blog/:id" element={<DetailPage />}/>
+        <Route path="/about-us" element={<About />}/>
+        <Route path="/contact-us" element={<Contact />}/>
+        <Route path="/services" element={<Services />}/>
       </Routes>
     </BrowserRouter>
   )

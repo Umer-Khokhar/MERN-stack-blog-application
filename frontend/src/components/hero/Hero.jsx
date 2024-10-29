@@ -1,12 +1,14 @@
-import React from 'react';
+import {useContext} from 'react';
 import './HeroSection.css';
 import { images } from '../../constant';
+import {ThemeContext} from "../";
 
 const HeroSection = () => {
+  const {isDarkMode} = useContext(ThemeContext);
   return (
     <>
     <div className="hero__section">
-      <div className="hero-content">
+      <div className={`hero-content ${isDarkMode ? "dark-mode" : ""}`}>
         <h1>A 6-Step Guide to Social Media for Small Businesses</h1>
         <p className="hero-description">
           Social media for small businesses can be crucial to growth and success. 

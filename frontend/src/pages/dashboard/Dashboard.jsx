@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import {useEffect, useContext} from 'react';
 import './dashboard.css';
 import { images } from '../../constant';
-import { handleGetBlogs, BlogForm, BlogDetails, useBlogContext } from '../../components';
+import { handleGetBlogs, BlogForm, BlogDetails, useBlogContext, ThemeContext } from '../../components';
 
 const Dashboard = () => {
   const { blogs, setBlogs } = useBlogContext();
 
-  let turncateDesc = (description, maxchars = 120) => {
-    if (!description || typeof description !== 'string') {
-      return ''; // Return an empty string if description is undefined or not a string
-    }
-  
-    if (description.length > maxchars) {
-      return description.slice(0, maxchars) + "...";
-    }
-    return description;
-  }
+  const { isDarkMode } = useContext(ThemeContext);
 
   useEffect(() => {
     handleGetBlogs()
@@ -27,14 +18,13 @@ const Dashboard = () => {
   
 
   return (
-    <div className='dashboard'>
-      <div className="post-area">
+    <div className={`dashboard ${isDarkMode ? "dark-mode" : ""}`}>
+      <div className='post-area'>
         <div className="posts">
           {blogs && blogs.map(blog => ( // Defensive check
             <div className="my-post" key={blog._id}>
               <BlogDetails
                 title={blog.title}
-                description={turncateDesc(blog.desc)}
                 image={blog.image}
                 _id={blog._id}
                 dltBtn={images.dltBtn}

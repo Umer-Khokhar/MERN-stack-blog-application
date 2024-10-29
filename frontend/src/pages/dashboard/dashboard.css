@@ -19,6 +19,30 @@
     border-radius: 4px;
 }
 
+.dashboard.dark-mode .post-area {
+    background-color: rgba(86, 86, 86, 0.4);
+}
+
+.dashboard.dark-mode .post-area .posts  {
+    background-color: rgba(31, 31, 40, 0.4);
+}
+
+.dashboard.dark-mode  .post-area .posts .my-post {
+    background-color: #20212d;
+}
+
+.posts .my-post .blogs-detail h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.posts .my-post .blogs-detail p {
+    font-size: 14px;
+}
+
+.dashboard.dark-mode  .post-area .posts .my-post img.dlt {
+    filter: invert(1);
+}
+
 
 .dashboard .post-form {
     background-color: white;
@@ -30,6 +54,29 @@
     padding: 2rem;
 }
 
+.dashboard.dark-mode .post-form {
+    background-color: rgba(86, 86, 86, 0.4);
+}
+
+.dashboard.dark-mode .post-form button {
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    transition: all 300ms ease;
+}
+
+.dashboard.dark-mode .post-form input {
+    background-color: rgba(77, 77, 77, 0.24);
+    color: oldlace;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+.dashboard.dark-mode .post-form textarea {
+    background-color: rgba(77, 77, 77, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+}
 /* blog post CSS  */
 
 .posts {
@@ -42,10 +89,11 @@
     overflow-x: hidden;
     padding-right: 10px;
     scroll-behavior: smooth;
-    background-color: rgba(204, 204, 204, 0.302);
+    /*background-color: rgba(204, 204, 204, 0.302);*/
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 1rem;
+    height: 100%;
 }
 
 /* Target the .posts element */
@@ -81,11 +129,12 @@
     background-color: #fff;
     width: 100%;
     max-height: 120px;
-    min-height: 120px;
+    min-height: 100px;
     display: flex;
     gap: 1rem;
     /* justify-content: center; */
     align-items: flex-start;
+    border: 1px solid rgba(128, 128, 128, 0.45);
 }
 
 /* .my-post > img {
@@ -103,6 +152,7 @@
 @media screen and (max-width: 1024px) {
   .dashboard {
     gap: 2rem;
+    flex-direction: column-reverse;
   }
   .dashboard .post-area {
     width: 100%;
@@ -111,3 +161,35 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 580px) {
+    .my-post {
+        max-height: 80px;
+        min-height: 80px;
+    }
+  .my-post .post__info h2 {
+      font-size: 14px !important;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      /*padding-right: 35px;*/
+  }
+    .my-post .blogs-detail .blog-image {
+        width: 100px;
+        height: 80px;
+    }
+    .dlt {
+        width: 15px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+  .my-post .post__info h2 {
+      font-size: 14px !important;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-right: 22px;
+  }
+}
+

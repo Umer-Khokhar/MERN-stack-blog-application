@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { images } from '../../constant';
-import { FetchFromAPI, handleGetBlogs } from '..';
+import  { useState, useEffect, useContext } from 'react';
+// import { images } from '../../constant';
+import {  handleGetBlogs, ThemeContext } from '..';
 import { useNavigate } from 'react-router-dom';
 import "./blogSection.css";
 
@@ -10,6 +10,8 @@ const BlogSection = () => {
   const [filterBlog, setFilterBlog] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [error, setError] = useState(null);
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   let turncateDesc = (description, maxchars = 160) => {
     if (!description || typeof description !== 'string') {
@@ -22,7 +24,7 @@ const BlogSection = () => {
     return description;
   }
   const filterHandler = (item) => {
-      setFilterBlog(item);
+      setActiveFilter(item);
       if (item === "All") {
           setFilterBlog(blogs);
       } else {
@@ -54,15 +56,15 @@ const BlogSection = () => {
   return (
     <div className='blog__section'>
         <h1>All Blogs</h1>
-        <div className="blog__section-search">
+        <div className={`blog__section-search ${isDarkMode ? "dark-mode": ""}`}>
             {filters.map((filter, index) => (
                 // eslint-disable-next-line react/jsx-key
-                <button key={filter + index} onClick={() => filterHandler(filter)}>{filter}</button>
+                <button className={`filter-btn ${activeFilter === filter ? "checked-btn" : ""}`} key={filter + index} onClick={() => filterHandler(filter)}>{filter}</button>
             ))}
         </div>
         <div className="blog__section-cards">
         {filterBlog.map(blog => (
-            <div className="blog__section-card" key={blog._id} onClick={() => handleCardClick(blog._id)}>
+            <div className={`blog__section-card ${isDarkMode ? "dark-mode": ""}`} key={blog._id} onClick={() => handleCardClick(blog._id)}>
               <div className="card-img">
                 <img src={blog.image} alt="dev card image" />
               </div>

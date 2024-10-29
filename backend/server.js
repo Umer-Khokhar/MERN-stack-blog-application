@@ -19,7 +19,7 @@ const DBConnectionString = process.env.MongoDB_URI;
 // For CORS
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5175"], // Removed the trailing slash here
+    origin: ["http://localhost:5173", "192.168.1.5:5173"], // Removed the trailing slash here
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-type", "Authorization"],
@@ -35,6 +35,7 @@ app.use("/api/blog-post", blogPostController);
 // Main page get request
 app.get("/", (req, res) => {
   res.send("Hello World!");
+  console.log(req)
 });
 
 // MongoDB mongoose.connect

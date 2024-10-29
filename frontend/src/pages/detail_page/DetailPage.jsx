@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { useBlogContext, Loader } from '../../components';
+import { useBlogContext, Loader, ThemeContext } from '../../components';
 import { handleGetBlogs } from '../../components';
 import { images } from '../../constant';
 
@@ -9,6 +9,7 @@ import './blogdetail.css'
 const BlogDetails = () => {
   const { id } = useParams(); // Get the blog id from the URL
   const { blogs, setBlogs } = useBlogContext(); // Get all blogs from context
+  const { isDarkMode } = useContext(ThemeContext);
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(null); // Track error state
 
@@ -48,7 +49,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="blog__details">
+    <div className={`blog__details ${isDarkMode ? "dark-mode" : ""}`}>
       <h2>{blog.title}</h2>
       <div className="name-time-info">
         <div className="user">

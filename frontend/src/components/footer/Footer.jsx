@@ -1,10 +1,12 @@
-import React from "react";
+import {useContext} from "react";
+import { ThemeContext } from '../'
 import "./footer.css"; // Ensure you have this CSS file
 
 // eslint-disable-next-line react/prop-types
 const Footer = ({ githubIcon, linkedinIcon, instagramIcon, discordIcon }) => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
-    <footer className="footer">
+    <footer className={`footer ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className="footer-container">
         <div className="footer-logo">
           <h1>Blogi</h1>
