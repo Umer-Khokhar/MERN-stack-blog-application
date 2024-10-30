@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
 import { FetchFromAPI } from '..';
 
-const fetchUrl = 'http://localhost:3000/api/blog-post' || '192.168.1.5:3000/api/blog-post';
+const fetchUrl = 'https://mern-stack-blog-application-server.vercel.app/api/blog-post';
 export const handleGetBlogs = async () => {
   try {
     const getData = await FetchFromAPI(fetchUrl)

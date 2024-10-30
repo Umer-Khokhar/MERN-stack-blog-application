@@ -6,7 +6,7 @@ const BlogDetails = ({title, image, _id, dltBtn}) => {
   const { dltBlog } = useBlogContext()
 
   const handleDlt = async () => {
-      const fetchUrl = `http://localhost:3000/api/blog-post/${_id}` || `192.168.1.5:3000/api/blog-post/${_id}`;
+      const fetchUrl = `https://mern-stack-blog-application-server.vercel.app/api/blog-post/${_id}`;
     const response = await fetch(fetchUrl, {
       method : "DELETE",
     })
